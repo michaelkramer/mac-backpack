@@ -1,10 +1,18 @@
 [user]
-	name = Chris Heninger
-	email = chris@igravitystudios.com
+	name = Michael Kramer
+	email = michaelrkramer@gmail.com
 [push]
 	default = current
 [core]
 	editor = code
-	excludesfile = /Users/chris/.gitignore_global
+	excludesfile = /Users/michaelkramer/.gitignore_global
 [alias]
 	fml = push --force-with-lease
+	pl = pull
+	co = checkout
+	nb = checkout -b
+	up = push
+	all = add -A
+	msg = commit -m
+	m = !git add -A && git commit -m
+	amend = !git all && git commit --amend --no-edit

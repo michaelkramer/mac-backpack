@@ -1,2 +1,15 @@
-*.DS_Store
-*.swp
+# General
+**/.DS_Store
+**/.AppleDouble
+**/.LSOverride
+**/.swp
+
+# dotenv environment variables file
+**/.env
+**/.env.test
+
+# Dependency directories
+**/node_modules/
+
+# Special Testing Files
+**/*mk-code*.*
