@@ -1,8 +1,11 @@
 #!/bin/bash
 yes '' | /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew install git
+brew install node
 brew install git node yarn
 brew cask install authy
 brew cask install docker
+brew cask install dropbox
 brew cask install google-backup-and-sync
 brew cask install google-chrome
 brew cask install iterm2
