@@ -3,6 +3,8 @@
 	email = michaelrkramer@gmail.com
 [push]
 	default = current
+[pull]
+	rebase = true
 [core]
 	editor = code
 	excludesfile = /Users/michaelkramer/.gitignore_global
