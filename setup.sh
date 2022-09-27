@@ -1,28 +1,28 @@
 #!/bin/bash
 yes '' | /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew install git
-brew install node
-brew install git node yarn
+
+# Casts
+brew install --cask git node yarn npm
 # password protection app
-brew cask install authy
-brew cask install docker
-brew cask install dropbox
-brew cask install google-backup-and-sync
-brew cask install google-chrome
+brew install --cask authy
+brew install --cask docker
+brew install --cask dropbox
+brew install --cask google-backup-and-sync
+brew install --cask google-chrome
 # terminal app
-brew cask install iterm2
+brew install --cask iterm2
 # auto suggest for terminal
-brew cask install fig
+brew install --cask fig
 # screen recorder
-brew cask install kap
+brew install --cask kap
 # Postgrest Management Console
-brew cask install postico
+brew install --cask postico
 # Chat app
-brew cask install slack
+brew install --cask slack
 # IDE
-brew cask install visual-studio-code
+brew install --cask visual-studio-code
 # video viewer
-brew cask install vlc
+brew install --cask vlc
 
 # Copy dotfiles to user's home directory
 cp -a ./dotfiles/. ~/
