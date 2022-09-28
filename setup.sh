@@ -1,37 +1,73 @@
 #!/bin/bash
-yes '' | /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+yes '' | /usr/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
-echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
-eval "$(/opt/homebrew/bin/brew shellenv)"
-
-brew install git node yarn
-brew install android-platform-tools
-brew install graphicsmagick
-
-# Casks
-brew install --cask 1password
-brew install --cask adobe-creative-cloud
-brew install --cask aerial
+# Casts
+brew install git 
+brew install node 
+brew install yarn 
+brew install npm
+# password protection app
 brew install --cask authy
-brew install --cask firefox
+brew install --cask docker
+brew install --cask dropbox
+# browser
 brew install --cask google-chrome
-brew install --cask google-drive
+# terminal app
 brew install --cask iterm2
+# auto suggest for terminal
+brew install --cask fig
+# screen recorder
+brew install --cask kap
+# Postgrest Management Console
 brew install --cask postico
-brew install --cask raycast
-brew install --cask slack
-brew install --cask spotify
-brew install --cask visual-studio-code
+# video viewer
 brew install --cask vlc
+
+# Chat app
+while true; do
+    read -p "Which chat app do you use? [Slack|Teams|Both] " idea
+    case $ide in
+        [Ss]* ) brew install --cask slack; break;;
+        [Tt]* ) brew install --cask microsoft-teams; break;;
+        [Bb]* ) brew install --cask slack; brew install --cask microsoft-teams; break;;
+        * ) echo "No chat apps installed"; exit;
+    esac
+done
+
+
+# IDE
+while true; do
+    read -p "Choose your IDE? [VScode|IntelliJ] " idea
+    case $ide in
+        [Vv]* ) brew install --cask visual-studio-code; break;;
+        [Ii]* ) brew install --cask intellij-idea; break;;
+        * ) echo "No IDE was installed"; exit;
+    esac
+done
+
 
 # Copy dotfiles to user's home directory
 cp -a ./dotfiles/. ~/
-git config --global core.excludesfile ~/.gitignore_global 
 
 # Make a screenshots directory and set system to write to it
 mkdir ~/Screenshots
 defaults write com.apple.screencapture location ~/Screenshots
-killall SystemUIServer
 
-# Last
-source ~/.zprofile
+# Show all hidden files
+defaults write com.apple.finder AppleShowAllFiles YES
+
+# Restart finder
+killall SystemUIServer
+killall Finder
+
+# Make a code folder
+directory=~/Documents/code.nosync
+if [ -d "$directory" ]
+then
+    echo "$directory exists on your filesystem."
+    
+else
+    echo "$directory does not exist"
+    mkdir $directory
+fi
+
