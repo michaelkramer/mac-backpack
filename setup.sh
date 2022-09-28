@@ -25,23 +25,23 @@ brew install --cask vlc
 
 # Chat app
 while true; do
-    read -p "Which chat app do you use? [Slack|Teams|Both] " idea
-    case $ide in
+    read -p "Which chat app do you use? [Slack|Teams|Both] " chat
+    case $chat in
         [Ss]* ) brew install --cask slack; break;;
         [Tt]* ) brew install --cask microsoft-teams; break;;
         [Bb]* ) brew install --cask slack; brew install --cask microsoft-teams; break;;
-        * ) echo "No chat apps installed"; exit;
+        * ) echo "No chat apps installed"; break;
     esac
 done
 
 
 # IDE
 while true; do
-    read -p "Choose your IDE? [VScode|IntelliJ] " idea
+    read -p "Choose your IDE? [VScode|IntelliJ] " ide
     case $ide in
         [Vv]* ) brew install --cask visual-studio-code; break;;
         [Ii]* ) brew install --cask intellij-idea; break;;
-        * ) echo "No IDE was installed"; exit;
+        * ) echo "No IDE was installed"; break;
     esac
 done
 
