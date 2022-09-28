@@ -1,13 +1,16 @@
 #!/bin/bash
-yes '' | /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+yes '' | /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
 # Casts
-brew install --cask git node yarn npm
+brew install git 
+brew install node 
+brew install yarn 
+brew install npm
 # password protection app
 brew install --cask authy
 brew install --cask docker
 brew install --cask dropbox
-brew install --cask google-backup-and-sync
+# browser
 brew install --cask google-chrome
 # terminal app
 brew install --cask iterm2
@@ -17,12 +20,31 @@ brew install --cask fig
 brew install --cask kap
 # Postgrest Management Console
 brew install --cask postico
-# Chat app
-brew install --cask slack
-# IDE
-brew install --cask visual-studio-code
 # video viewer
 brew install --cask vlc
+
+# Chat app
+while true; do
+    read -p "Which chat app do you use? [Slack|Teams|Both] " idea
+    case $ide in
+        [Ss]* ) brew install --cask slack; break;;
+        [Tt]* ) brew install --cask microsoft-teams; break;;
+        [Bb]* ) brew install --cask slack; brew install --cask microsoft-teams; break;;
+        * ) echo "No chat apps installed"; exit;
+    esac
+done
+
+
+# IDE
+while true; do
+    read -p "Choose your IDE? [VScode|IntelliJ] " idea
+    case $ide in
+        [Vv]* ) brew install --cask visual-studio-code; break;;
+        [Ii]* ) brew install --cask intellij-idea; break;;
+        * ) echo "No IDE was installed"; exit;
+    esac
+done
+
 
 # Copy dotfiles to user's home directory
 cp -a ./dotfiles/. ~/
